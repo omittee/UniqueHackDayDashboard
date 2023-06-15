@@ -21,8 +21,9 @@ function fmtString(str: string, ...params: string[]) {
 const genIconImage = memoize(originGenIconImage);
 
 export default function msgMap(msg: SingleMessage): NoticeIconData {
-  console.log("msgMap", msg)
-  const datetime = new Date(msg.time).toLocaleString();
+  console.log("msgMap", msg);
+  // created_at是后端返回的一个ISO 8601 格式时间字符串，但前端ts没有定义类型
+  const datetime = new Date(msg['created_at']).toLocaleString();
   switch (msg.type) {
     case 'LoginElseWhere':
       return {
