@@ -16,7 +16,7 @@ const messageLoop: Epic = action$ =>
                     const returnArr: any[] = [];
                     if (messages && messages.length > 0) {
                         returnArr.push({
-                            type: TYPE.GET_UNREAD_MSG_ALL.OK,
+                            type: TYPE.GET_MSG_ALL.OK,
                             payload: messages,
                         });
                         returnArr.push({ type: TYPE.STOP_MSG_LOOP });

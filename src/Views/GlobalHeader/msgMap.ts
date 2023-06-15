@@ -21,7 +21,8 @@ function fmtString(str: string, ...params: string[]) {
 const genIconImage = memoize(originGenIconImage);
 
 export default function msgMap(msg: SingleMessage): NoticeIconData {
-  const datetime = new Date(msg.time * 1000).toLocaleString();
+  console.log("msgMap", msg)
+  const datetime = new Date(msg.time).toLocaleString();
   switch (msg.type) {
     case 'LoginElseWhere':
       return {
