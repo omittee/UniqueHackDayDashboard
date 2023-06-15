@@ -1,12 +1,12 @@
 export enum IconType {
-  QuestionCircle = '\ue63b',
-  QuestionCircleO = '\uE63C',
-  CloseCircle = '\ue62e',
-  CloseCircleO = '\ue62f',
-  UsergroupAdd = '\ue6dd',
-  CheckCircle = '\uE630',
-  CheckCircleO = '\uE631',
-  ExclamationCircle = '\uE62C',
+  QuestionCircle = '？',
+  QuestionCircleO = '？',
+  CloseCircle = '✖',
+  CloseCircleO = '✖',
+  UsergroupAdd = '⊕',
+  CheckCircle = '✔',
+  CheckCircleO = '✔',
+  ExclamationCircle = '!',
 }
 
 function genIconImage(text: IconType, color: string) {

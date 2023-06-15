@@ -37,12 +37,42 @@ export default function msgMap(msg: SingleMessage): NoticeIconData {
       const teammate = msg.newTeammateInfo;
       return {
         id: msg.id,
-        avatar: genIconImage(IconType.QuestionCircle, '#FFAF40'),
+        avatar: genIconImage(IconType.UsergroupAdd, '#FFAF40'),
         title: locales.messageTitles.NewTeammate,
         description: fmtString(locales.messageValues.NewTeammate, teammate.name, teammate.username),
         datetime,
         read: msg.read,
         clickHandler: (dispatch: any) => dispatch(replace('/team')),
+      } as any;
+    case 'TeamCreated':
+      return {
+        id: msg.id,
+        avatar: genIconImage(IconType.CheckCircle, 'green'),
+        title: locales.messageTitles.TeamCreated,
+        description: locales.messageValues.TeamCreated,
+        datetime,
+        read: msg.read,
+        clickHandler: (dispatch: any) => dispatch(replace('/team')),
+      } as any;
+    case 'TeamJoined':
+      return {
+        id: msg.id,
+        avatar: genIconImage(IconType.CheckCircle, 'green'),
+        title: locales.messageTitles.TeamJoined,
+        description: locales.messageValues.TeamJoined,
+        datetime,
+        read: msg.read,
+        clickHandler: (dispatch: any) => dispatch(replace('/team')),
+      } as any;
+    case 'ApplyComplete':
+      return {
+        id: msg.id,
+        avatar: genIconImage(IconType.CheckCircle, 'green'),
+        title: locales.messageTitles.ApplyComplete,
+        description: locales.messageValues.ApplyComplete,
+        datetime,
+        read: msg.read,
+        clickHandler: noop,
       } as any;
     case 'Accepted':
       return {
@@ -60,6 +90,46 @@ export default function msgMap(msg: SingleMessage): NoticeIconData {
         avatar: genIconImage(IconType.CloseCircle, 'red'),
         title: locales.messageTitles.Rejected,
         description: locales.messageValues.Rejected,
+        datetime,
+        read: msg.read,
+        clickHandler: noop,
+      } as any;
+    case 'ApplyNeedsConfirm':
+      return {
+        id: msg.id,
+        avatar: genIconImage(IconType.QuestionCircle, 'yellow'),
+        title: locales.messageTitles.ApplyNeedsConfirm,
+        description: locales.messageValues.ApplyNeedsConfirm,
+        datetime,
+        read: msg.read,
+        clickHandler: noop,
+      } as any;
+    case 'ApplyConfirmed':
+      return {
+        id: msg.id,
+        avatar: genIconImage(IconType.CheckCircle, 'green'),
+        title: locales.messageTitles.ApplyConfirmed,
+        description: locales.messageValues.ApplyConfirmed,
+        datetime,
+        read: msg.read,
+        clickHandler: noop,
+      } as any;
+    case 'ApplyCanceled':
+      return {
+        id: msg.id,
+        avatar: genIconImage(IconType.ExclamationCircle, 'green'),
+        title: locales.messageTitles.ApplyCanceled,
+        description: locales.messageValues.ApplyCanceled,
+        datetime,
+        read: msg.read,
+        clickHandler: noop,
+      } as any;
+    case 'HackExited':
+      return {
+        id: msg.id,
+        avatar: genIconImage(IconType.ExclamationCircle, 'green'),
+        title: locales.messageTitles.HackExited,
+        description: locales.messageValues.HackExited,
         datetime,
         read: msg.read,
         clickHandler: noop,
