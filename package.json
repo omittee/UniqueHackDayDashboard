@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "20.3.0"
+  },
   "name": "unique-hackday-dashboard",
   "version": "0.1.0",
   "description": "The dashboard application for Unique Hackday, designed to be reuseable.",
