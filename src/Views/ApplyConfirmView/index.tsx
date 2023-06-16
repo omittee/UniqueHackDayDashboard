@@ -4,7 +4,6 @@ import Alert from 'antd/es/alert';
 import Button from 'antd/es/button';
 import Row from 'antd/es/row';
 import Col from 'antd/es/col';
-import Checkbox from 'antd/es/checkbox';
 
 import { connect } from 'react-redux';
 import Icon from 'antd/es/icon';
@@ -71,18 +70,9 @@ class ApplyConfirmView extends React.Component<
                             />
                         )}
 
-                        <Checkbox style={{ marginBottom: '10px' }} onChange={this.handleCheckbox}>
-                            <a
-                                href="https://console.hack.hustunique.com/Hackday2019.pdf"
-                                target="_blank"
-                            >
-                                我已经仔细阅读并同意这份协议
-                            </a>
-                        </Checkbox>
                         <br />
 
                         <Button
-                            disabled={this.state.confirmButtonDisabled || this.props.ing}
                             type="primary"
                             style={{ marginTop: '10px' }}
                             onClick={this.props.handleConfirm}

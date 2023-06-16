@@ -16,7 +16,7 @@ import ApplyConfirmView from '../ApplyConfirmView';
 import { RootState } from '../../redux/reducers/index';
 import Message from 'antd/es/message';
 
-import QQGroupImg from './group.png';
+import QQGroupImg from './group.jpg';
 
 export interface ApplyViewProps {
     maxStep: number;
