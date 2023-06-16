@@ -610,13 +610,11 @@ declare namespace API {
               }
             | {
                   id: number;
-
                   type: MessageType.ApplyConfirmed;
                   time: number; // Timestamp
               }
             | {
                   id: number;
-
                   type: MessageType.ApplyCanceled;
                   time: number; // Timestamp
               }
