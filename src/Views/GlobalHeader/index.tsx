@@ -141,12 +141,16 @@ export default connect(
     (state: RootState) => {
         const unreadMsgs = state.msgData.unreadMessages.map(m => ({ ...m, read: false }));
         const readMsgs = state.msgData.readMessages.map(m => ({ ...m, read: true }));
+        unreadMsgs.sort((m1, m2) =>  new Date(m2['created_at']).getTime() - new Date(m1['created_at']).getTime())
+        readMsgs.sort((m1,m2) =>  new Date(m2['created_at']).getTime() - new Date(m1['created_at']).getTime())
         return {
             inUserEntry: state.router!.location.pathname.indexOf('/user_entry') === 0,
             loggedIn: state.auth.loggedIn,
             user: state.user,
             unreadMsgs,
-            msgs: [...unreadMsgs, ...readMsgs].sort((m1, m2) => m1.time - m2.time),
+            msgs: [...unreadMsgs, ...readMsgs].sort((m1, m2) =>{
+                return new Date(m2['created_at']).getTime() - new Date(m1['created_at']).getTime()
+            } ),
         };
     },
     dispatch => ({

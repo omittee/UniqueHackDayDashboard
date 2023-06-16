@@ -35,11 +35,12 @@ export default function msgMap(msg: SingleMessage): NoticeIconData {
         clickHandler: noop,
       } as any;
     case 'NewTeammate':
+      const data = JSON.parse(msg.data);
       return {
         id: msg.id,
         avatar: genIconImage(IconType.UsergroupAdd, '#FFAF40'),
         title: locales.messageTitles.NewTeammate,
-        description: fmtString(locales.messageValues.NewTeammate),
+        description: fmtString(locales.messageValues.NewTeammate,data.name, data.username),
         datetime,
         read: msg.read,
         clickHandler: (dispatch: any) => dispatch(replace('/team')),

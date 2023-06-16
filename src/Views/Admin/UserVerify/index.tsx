@@ -111,7 +111,7 @@ class UserVerify extends React.Component<UserVerifyProps> {
             user => user.verifyState === 0 || user.verifyState === 1,
         ).length;
         const rejectNum = dataSource.filter(user => user.verifyState === 2).length;
-        const passNum = dataSource.filter(user => user.verifyState === 3 || user.verifyState === 4)
+        const passNum = dataSource.filter(user => user.verifyState === 3)
             .length;
         const determinedNum = dataSource.filter(user => user.verifyState === 4).length;
 
