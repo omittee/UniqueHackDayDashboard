@@ -143,9 +143,10 @@ export default function msg(
     case TYPE.GET_UNREAD_MSG_ALL.START:
       return { ...state, isLoadingUnreadMessages: true };
     case TYPE.GET_UNREAD_MSG_ALL.OK:
+      console.log(action.payload)
       return {
         ...state,
-        unreadMessages: action.payload,
+        unreadMessages: action.payload.filter((el) => el.read === false),
         isLoadingUnreadMessages: false,
       };
     case TYPE.GET_UNREAD_MSG_ALL.FAIL:

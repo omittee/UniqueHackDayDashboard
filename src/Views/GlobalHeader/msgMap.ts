@@ -21,7 +21,6 @@ function fmtString(str: string, ...params: string[]) {
 const genIconImage = memoize(originGenIconImage);
 
 export default function msgMap(msg: SingleMessage): NoticeIconData {
-  console.log("msgMap", msg);
   // created_at是后端返回的一个ISO 8601 格式时间字符串，但前端ts没有定义类型
   const datetime = new Date(msg['created_at']).toLocaleString();
   switch (msg.type) {
@@ -36,12 +35,11 @@ export default function msgMap(msg: SingleMessage): NoticeIconData {
         clickHandler: noop,
       } as any;
     case 'NewTeammate':
-      const teammate = msg.newTeammateInfo;
       return {
         id: msg.id,
         avatar: genIconImage(IconType.UsergroupAdd, '#FFAF40'),
         title: locales.messageTitles.NewTeammate,
-        description: fmtString(locales.messageValues.NewTeammate, teammate.name, teammate.username),
+        description: fmtString(locales.messageValues.NewTeammate),
         datetime,
         read: msg.read,
         clickHandler: (dispatch: any) => dispatch(replace('/team')),

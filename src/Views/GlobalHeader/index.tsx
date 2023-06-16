@@ -56,7 +56,6 @@ class GlobalHeader extends React.Component<{
                     </Menu.Item>
                     {this.props.loggedIn && this.renderUserMenu()}
                 </Menu>
-                {!this.props.loggedIn && this.renderGithubAchor()}
             </Layout.Header>
         );
     }
@@ -65,15 +64,6 @@ class GlobalHeader extends React.Component<{
         return <div className={cls['header-left-icon']} />;
     }
 
-    renderGithubAchor() {
-        return (
-            <div className={cls['header-right-icon']}>
-                <a href="https://github.com/UniqueStudio/UniqueHackDayDashboard" rel="noopener">
-                    <Icon type="github" style={{ fontSize: '1rem' }} />
-                </a>
-            </div>
-        );
-    }
 
     handleClear = (tableTitle: string) => {
         if (tableTitle === '未读消息') {
@@ -92,11 +82,6 @@ class GlobalHeader extends React.Component<{
             <Menu>
                 <Menu.Item key="0" style={{ width: '150px' }} onClick={this.handleEdit}>
                     <Icon type="edit" style={{ marginRight: '4px' }} /> 编辑报名信息
-                </Menu.Item>
-                <Menu.Item key="0" style={{ width: '150px' }}>
-                    <a href="https://console.hack.hustunique.com/Hackday2019.pdf" target="_blank">
-                        <Icon type="form" style={{ marginRight: '4px' }} /> 阅读参赛协议
-                    </a>
                 </Menu.Item>
                 <Menu.Divider />
                 <Menu.Item key="2">
