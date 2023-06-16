@@ -50,7 +50,7 @@ class GlobalHeader extends React.Component<{
                         </a>
                     </Menu.Item>
                     <Menu.Item className={cls['header-menu-link']} key="site_unqiue">
-                        <a href="http://www.hustunique.com" target="_blank" rel="noopener">
+                        <a href="http://hustunique.com" target="_blank" rel="noopener">
                             联创团队官网
                         </a>
                     </Menu.Item>
